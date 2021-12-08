@@ -26,17 +26,21 @@ int main() {
     if (!switchChoice) {//do not switch
       if (door_chosen == door_with_car)	{
         stayWins++;
+      } else {
+        switchWins++;
       }
     }
     if (switchChoice) {//switch the choice
       door_chosen = door_not_chosen;
       if (door_chosen == door_with_car)	{
         switchWins++;
+      } else {
+        stayWins++;
       }
     }
   } 
 
-  std::cout << "Out of 100,000 games, the contestant won " << stayWins << " times by staying with his/her original choice and won " << switchWins << " times by switching his/her choice.\n\n" ;
+  std::cout << "Out of "<<simulations<<" games, the contestant won " << stayWins << " times by staying with his/her original choice and won " << switchWins << " times by switching his/her choice.\n\n" ;
 
   std::cout<< "Probability of winning if switched: ";
   std::cout<< static_cast<double>(switchWins)/(switchWins+stayWins) << std::endl;
